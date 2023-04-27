@@ -1,9 +1,7 @@
 console.log("hello")
 
 
-
-var city = "boston"
-
+var city = 'boston'
 
 var API_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=9e7196afba18b75635e3489a9e6a6b9e&units=imperial'
 
@@ -24,16 +22,19 @@ fetch(API_WEATHER_URL)
         console.error(error);
     });
 
+
+
+
 //function createWeatherCard(list) {
 //  var cardEl = document.createElement('article');
 //cardEl.setAttribute('class', 'card, m-3');
-//cardEl.setAttribute('style', 'width: 18rem');
+//cardEl.setAttribute('style', 'width: 12rem');
 
 //  var bodyEl = document.createElement('div');
 //  bodyEl.setAttribute('class', 'card-body');
 
 //  var pEl = document.createElement('p');
-//  pEl.setAttribute('class', 'card)       ???
+//  pEl.setAttribute('class', 'card')       ???
 //  pEl.innerHTML = dayjs().format('MMMM, D, YYYY');  ???
 
 
@@ -43,8 +44,14 @@ fetch(API_WEATHER_URL)
 //  imgEl.setAttribute('alt', 'weather condition Icon');
 //  imgEl.setAttribute('class', '??');
 
-//  var bodyEl = document.createElement('div');
-//  bodyEl.setAttribute('class', 'card-body');
+
+
+// var listEl = document.createElement('ul');
+// listEl.setAttribute('class', 'list-group, list-group-flush');
+
+// var listItemEl1 = document.createElement('li');
+// listItemEl1.setAttribute('class', 'list-group-item');
+// 
 
 ///  return cardEl.append(imgEl);
 //}
@@ -56,6 +63,6 @@ fetch(API_WEATHER_URL)
 
 //can i put icon # in src string using a variable
 
-
+//    aria-describedby="emailHelp"   is this needed in form id
 
 //console.log(data.list[0]);
