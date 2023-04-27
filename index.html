@@ -21,99 +21,103 @@
         <h1>Weather Dashboard</h1>
     </header>
 
-    <form class="w-25 m-5" style="width: 6rem;">
-        <div>
-            <label for="cityName" class="form-label">Search for a City:</label>
-            <input name='city' type="text" placeholder='enter city name' class="form-control border border-dark"
-                id="cityInput">
-            <button type="submit" class="btn btn-primary w-100 my-3">Search</button>
-            <hr class="hr">
-        </div>
-    </form>
 
-    <div class="d-flex flex-row justify-content-end">
-
-        <div class="card m-3" style="width: 68rem;">
-            <div class="card-body">
-                <p id="dateToday"></p>
-            </div>
-            <!--
+    <div class="container-fluid">
+        <div class="row justify-content-end">
+            <form class='col-3 p-3 m-2'>
+                <div>
+                    <label for="cityName" class="form-label">Search for a City:</label>
+                    <input name='city' type="text" placeholder='enter city name' class="form-control border border-dark"
+                        id="cityInput">
+                    <button type="submit" class="btn btn-primary w-100 my-3">Search</button>
+                    <hr class="hr">
+                </div>
+            </form>
+            <div class="col">
+                <div class="card m-3">
+                    <div class="card-body">
+                        <p id="dateToday"></p>
+                    </div>
+                    <!--
             <img src="https://openweathermap.org/img/wn/09d@2x.png" class="card-img-top" alt="...">
             -->
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-            </ul>
-        </div>
-    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">An item</li>
+                        <li class="list-group-item">A second item</li>
+                        <li class="list-group-item">A third item</li>
+                    </ul>
+                </div>
 
-    <div class="d-flex flex-row justify-content-end">
+                <div class="d-flex flex-row justify-content-end">
 
-        <div class="card m-3" style="width: 12rem;">
-            <div class="card-body">
-                <p id="dateTomorrow"></p>
+                    <div class="card m-3" style="width: 12rem;">
+                        <div class="card-body">
+                            <p id="dateTomorrow"></p>
+                        </div>
+
+                        <img src="https://openweathermap.org/img/wn/09d@2x.png" class="card-img-top" alt="...">
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                        </ul>
+                    </div>
+                    <div class="card m-3" style="width: 12rem;">
+                        <div class="card-body">
+                            <p id="dateDay3"></p>
+                        </div>
+
+                        <img src="https://openweathermap.org/img/wn/01d@2x.png" class="card-img-top" alt="...">
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                        </ul>
+                    </div>
+                    <div class="card m-3" style="width: 12rem;">
+                        <div class="card-body">
+                            <p id="dateDay4"></p>
+                        </div>
+
+                        <img src="https://openweathermap.org/img/wn/11d@2x.png" class="card-img-top" alt="...">
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                        </ul>
+                    </div>
+                    <div class="card m-3" style="width: 12rem;">
+                        <div class="card-body">
+                            <p id="dateDay5"></p>
+                        </div>
+
+                        <img src="https://openweathermap.org/img/wn/13n@2x.png" class="card-img-top" alt="...">
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                        </ul>
+                    </div>
+                    <div class="card m-3" style="width: 12rem;">
+                        <div class="card-body">
+                            <p id="dateDay6"></p>
+                        </div>
+
+                        <img src="https://openweathermap.org/img/wn/10d@2x.png" class="card-img-top"
+                            alt="Weather Conditions Icon">
+
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">An item</li>
+                            <li class="list-group-item">A second item</li>
+                            <li class="list-group-item">A third item</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-
-            <img src="https://openweathermap.org/img/wn/09d@2x.png" class="card-img-top" alt="...">
-
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-            </ul>
-        </div>
-        <div class="card m-3" style="width: 12rem;">
-            <div class="card-body">
-                <p id="dateDay3"></p>
-            </div>
-
-            <img src="https://openweathermap.org/img/wn/01d@2x.png" class="card-img-top" alt="...">
-
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-            </ul>
-        </div>
-        <div class="card m-3" style="width: 12rem;">
-            <div class="card-body">
-                <p id="dateDay4"></p>
-            </div>
-
-            <img src="https://openweathermap.org/img/wn/11d@2x.png" class="card-img-top" alt="...">
-
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-            </ul>
-        </div>
-        <div class="card m-3" style="width: 12rem;">
-            <div class="card-body">
-                <p id="dateDay5"></p>
-            </div>
-
-            <img src="https://openweathermap.org/img/wn/13n@2x.png" class="card-img-top" alt="...">
-
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-            </ul>
-        </div>
-        <div class="card m-3" style="width: 12rem;">
-            <div class="card-body">
-                <p id="dateDay6"></p>
-            </div>
-
-            <img src="https://openweathermap.org/img/wn/10d@2x.png" class="card-img-top" alt="Weather Conditions Icon">
-
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-            </ul>
         </div>
     </div>
     <!--
