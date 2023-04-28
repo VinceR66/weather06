@@ -21,10 +21,9 @@
         <h1>Weather Dashboard</h1>
     </header>
 
-
     <div class="container-fluid">
-        <div class="row justify-content-end">
-            <form class='col-3 p-3 m-2'>
+        <div class="row">
+            <form class='col-4 p-3 m-2'>
                 <div>
                     <label for="cityName" class="form-label">Search for a City:</label>
                     <input name='city' type="text" placeholder='enter city name' class="form-control border border-dark"
@@ -48,15 +47,14 @@
                     </ul>
                 </div>
 
-                <div class="d-flex flex-row justify-content-end">
-
+                <div class="row" id="weather-results">
+                    <!--
                     <div class="card m-3" style="width: 12rem;">
                         <div class="card-body">
                             <p id="dateTomorrow"></p>
                         </div>
 
                         <img src="https://openweathermap.org/img/wn/09d@2x.png" class="card-img-top" alt="...">
-
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">An item</li>
                             <li class="list-group-item">A second item</li>
@@ -116,28 +114,18 @@
                             <li class="list-group-item">A third item</li>
                         </ul>
                     </div>
+                    -->
                 </div>
             </div>
         </div>
     </div>
     <!--
-    //container on left side
-    //form in left side container - input box and search button
+   
     //dynamically created buttons to populate in left side container under form
 
-    //container under header to right of container on left side
-
-    //5 cards under container under header - cards in a row
 
 -->
-    <script>
-        document.getElementById("dateToday").innerHTML = dayjs().format('MMMM, D, YYYY');
-        document.getElementById("dateTomorrow").innerHTML = dayjs().add(1, 'day').format('MMMM, D, YYYY');
-        document.getElementById("dateDay3").innerHTML = dayjs().add(2, 'day').format('MMMM, D, YYYY');
-        document.getElementById("dateDay4").innerHTML = dayjs().add(3, 'day').format('MMMM, D, YYYY');
-        document.getElementById("dateDay5").innerHTML = dayjs().add(4, 'day').format('MMMM, D, YYYY');
-        document.getElementById("dateDay6").innerHTML = dayjs().add(5, 'day').format('MMMM, D, YYYY');
-    </script>
+    <script></script>
 
     <script src="./assets/script.js"></script>
 
