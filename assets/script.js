@@ -21,6 +21,7 @@ function getWeather(city) {
             // delete this
             renderWeatherCard(data.list);
             //
+            renderHeaderCard(data.list);
         })
         .catch(function (error) {
             console.error(error);
@@ -32,6 +33,51 @@ document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault();
     getWeather(this.city.value);
 });
+
+function createHeaderCard(firstCard) {
+    var cardEl = document.createElement('article');
+    cardEl.setAttribute('class', 'card m-3');
+    //cardEl.setAttribute('style', 'width: 18rem');
+
+    // var imgEl = document.createElement('img');
+    // imgEl.setAttribute('src', "https://openweathermap.org/img/wn/" + firstCard.weather[0].icon + "@2x.png");
+    // imgEl.setAttribute('alt', 'weather icon');
+    // imgEl.setAttribute('class', 'card-img-middle');
+
+    var bodyEl = document.createElement('div');
+    bodyEl.setAttribute('class', 'card-body');
+
+    var titleEl = document.createElement('h5');
+    titleEl.setAttribute('class', 'card-title');
+    titleEl.textContent = 'today';
+
+    var tempEl = document.createElement('p');
+    tempEl.setAttribute('class', 'card-text');
+    tempEl.textContent = 'Temp: ' + firstCard.main.temp;
+
+    var windEl = document.createElement('p');
+    windEl.setAttribute('class', 'card-text');
+    windEl.textContent = 'Wind: ' + firstCard.wind.speed;
+
+    var humidityEl = document.createElement('p');
+    humidityEl.setAttribute('class', 'card-text');
+    humidityEl.textContent = 'Humidity: ' + firstCard.main.humidity;
+
+    bodyEl.append(titleEl, tempEl, windEl, humidityEl);
+
+    cardEl.append(bodyEl);
+
+    return cardEl;
+
+};
+
+
+
+function renderHeaderCard(cardOne) {
+    var outcomeEl = document.getElementById('header-results');
+    var headerCard = createHeaderCard(cardOne[0]);
+    outcomeEl.append(headerCard);
+}
 
 //this gets deleted
 function createWeatherCard(weather) {
@@ -49,7 +95,7 @@ function createWeatherCard(weather) {
 
     var titleEl = document.createElement('h5');
     titleEl.setAttribute('class', 'card-title');
-    titleEl.textContent = 'today';
+    titleEl.textContent = 'tomorrow';
 
     var tempEl = document.createElement('p');
     tempEl.setAttribute('class', 'card-text');
@@ -80,11 +126,16 @@ function createWeatherCard(weather) {
 
 function renderWeatherCard(forecast) {
     var resultsEl = document.getElementById('weather-results');
-    for (i = 0; i < 33; i += 8) {
+    for (i = 7; i < 40; i += 8) {
         var weatherCard = createWeatherCard(forecast[i]);
         resultsEl.append(weatherCard);
     }
 }
+
+
+
+
+
 //
 
 // these get added back
@@ -93,7 +144,7 @@ function renderWeatherCard(forecast) {
 //document.getElementById("dateDay4").innerHTML = dayjs().add(3, 'day').format('MMMM, D, YYYY');
 //document.getElementById("dateDay5").innerHTML = dayjs().add(4, 'day').format('MMMM, D, YYYY');
 //document.getElementById("dateDay6").innerHTML = dayjs().add(5, 'day').format('MMMM, D, YYYY');
-document.getElementById("dateToday").innerHTML = dayjs().format('MMMM, D, YYYY');
+//document.getElementById("dateToday").innerHTML = dayjs().format('MMMM, D, YYYY');
 
 
 /*
