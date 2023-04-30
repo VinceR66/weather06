@@ -19,8 +19,10 @@ function getWeather(city) {
             document.body.appendChild(dump);
             console.log(data.list[0].main.temp);
 
-            renderWeatherCard(data.list);
             renderHeaderCard(data.list);
+            renderWeatherCard(data.list);
+            document.getElementById('cityInput').value = null;
+
         })
         .catch(function (error) {
             console.error(error);
@@ -29,21 +31,28 @@ function getWeather(city) {
 
 document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault();
+    var inputCity = document.getElementById('cityInput');
+    localStorage.setItem(inputCity.value, inputCity.value);
     getWeather(this.city.value);
+    //pastSearchButton(this.city.value);
+    //window.location.reload();
 });
+
+
+//function resetThePage() {
+//  location.reload();
+//};
+
+//setTimeout(resetThePage, 10);
+
 
 
 function createHeaderCard(firstCard) {
     var cardEl = document.createElement('article');
     cardEl.setAttribute('class', 'card m-3');
 
-    // var imgEl = document.createElement('img');
-    // imgEl.setAttribute('src', "https://openweathermap.org/img/wn/" + firstCard.weather[0].icon + "@2x.png");
-    // imgEl.setAttribute('alt', 'weather icon');
-    // imgEl.setAttribute('class', 'card-img-middle');
-
     var bodyEl = document.createElement('div');
-    bodyEl.setAttribute('class', 'card-body');
+    bodyEl.setAttribute('class', 'card-body bg-warning text-black');
 
     var titleEl = document.createElement('h3');
     titleEl.setAttribute('class', 'card-title');
@@ -52,15 +61,15 @@ function createHeaderCard(firstCard) {
 
     var tempEl = document.createElement('p');
     tempEl.setAttribute('class', 'card-text');
-    tempEl.textContent = 'Temp: ' + firstCard.main.temp;
+    tempEl.textContent = 'Temp: ' + firstCard.main.temp + ' degrees';
 
     var windEl = document.createElement('p');
     windEl.setAttribute('class', 'card-text');
-    windEl.textContent = 'Wind: ' + firstCard.wind.speed;
+    windEl.textContent = 'Wind: ' + firstCard.wind.speed + ' mph';
 
     var humidityEl = document.createElement('p');
     humidityEl.setAttribute('class', 'card-text');
-    humidityEl.textContent = 'Humidity: ' + firstCard.main.humidity;
+    humidityEl.textContent = 'Humidity: ' + firstCard.main.humidity + ' percent';
 
     bodyEl.append(titleEl, tempEl, windEl, humidityEl);
 
@@ -88,7 +97,7 @@ function createWeatherCard(weather) {
     imgEl.setAttribute('class', 'card-img-middle');
 
     var bodyEl = document.createElement('div');
-    bodyEl.setAttribute('class', 'card-body');
+    bodyEl.setAttribute('class', 'card-body bg-secondary text-white');
 
     var titleEl = document.createElement('h3');
     titleEl.setAttribute('class', 'card-title');
@@ -96,15 +105,15 @@ function createWeatherCard(weather) {
 
     var tempEl = document.createElement('p');
     tempEl.setAttribute('class', 'card-text');
-    tempEl.textContent = 'Temp: ' + weather.main.temp;
+    tempEl.textContent = 'Temp: ' + weather.main.temp + ' degrees';
 
     var windEl = document.createElement('p');
     windEl.setAttribute('class', 'card-text');
-    windEl.textContent = 'Wind: ' + weather.wind.speed;
+    windEl.textContent = 'Wind: ' + weather.wind.speed + ' mph';
 
     var humidityEl = document.createElement('p');
     humidityEl.setAttribute('class', 'card-text');
-    humidityEl.textContent = 'Humidity: ' + weather.main.humidity;
+    humidityEl.textContent = 'Humidity: ' + weather.main.humidity + ' percent';
 
     bodyEl.append(titleEl, tempEl, windEl, humidityEl);
 
@@ -122,6 +131,20 @@ function renderWeatherCard(forecast) {
     }
 }
 
+/*
+function pastSearchButton(historicSearches) {
+    var historySearchEl = document.createElement('div');
+    var oldSearchBtnEl = document.createElement('button');
+    oldSearchBtnEl.setAttribute('type', 'submit');
+    oldSearchBtnEl.setAttribute('class', 'btn btn-secondary w-100 my-3');
+    oldSearchBtnEl.setAttribute('placeholder', 'city nane');
+
+    form.append(historySearchEl);
+
+    historySearchEl.append(oldSearchBtnEl);
+
+}
+*/
 
 
 

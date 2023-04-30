@@ -12,8 +12,7 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
     <link href="./assets/style.css">
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
-    <script>dayjs().format()</script>
+
 </head>
 
 <body>
@@ -23,7 +22,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <form class='col-3 p-3 m-2'>
+            <form class='col-3 p-3 m-2' id="inputTheCity">
                 <div>
                     <label for="cityName" class="form-label">Search for a City:</label>
                     <input name='city' type="text" placeholder='enter city name' class="form-control border border-dark"
@@ -41,6 +40,11 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script>dayjs().format()</script>
 
     <script src="./assets/script.js"></script>
 
