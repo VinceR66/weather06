@@ -1,7 +1,4 @@
 
-console.log("hello")
-
-
 function getWeather(city) {
 
     var API_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=9e7196afba18b75635e3489a9e6a6b9e&units=imperial'
@@ -35,12 +32,12 @@ document.querySelector('form').addEventListener('submit', function (event) {
     cityHistory.unshift(inputCity.value);
     localStorage.setItem('name', cityHistory);
 
-    console.log(this.city.value);
     getWeather(inputCity.value);
 
-    console.log(cityHistory);
     localStorage.getItem('name', cityHistory[0]);
-    console.log(localStorage.getItem('name', cityHistory[0]));
+    renderSearchButton(cityHistory[0]);
+    console.log('got this far');
+    console.log(cityHistory[0]);
 
 });
 
@@ -126,14 +123,29 @@ function renderWeatherCard(forecast) {
     var resultsEl = document.getElementById('weather-results');
     for (i = 7; i < 40; i += 8) {
         var weatherCard = createWeatherCard(forecast[i]);
+
         resultsEl.append(weatherCard);
     }
 };
-/*
-var dump = document.createElement('pre');
-dump.textContent = JSON.stringify(data.list, null, 2);
-document.body.appendChild(dump);
-console.log(data.list[0].main.temp);
-*/
 
-//'name', inputCity.value
+function renderSearchButton(pastInput) {
+    var attachBtn = document.getElementById('formButton');
+    var pastSearchBtn = document.createElement('button');
+    pastSearchBtn.setAttribute('type', 'submit');
+    pastSearchBtn.setAttribute('id', pastInput);
+    pastSearchBtn.setAttribute('class', 'btn bg-warning text-white btn-lg w-100 my-3');
+    pastSearchBtn.setAttribute('style', 'height: 40px');
+    pastSearchBtn.textContent = pastInput;
+    attachBtn.append(pastSearchBtn);
+};
+
+/*
+document.getElementById('formButton').addEventListener('click', function (event) {
+    event.preventDefault();
+    var inputCity = document.getElementById('cityInput');
+
+    getWeather(inputCity.value);
+
+
+});
+*/

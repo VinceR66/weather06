@@ -22,15 +22,21 @@
 
     <div class="container-fluid">
         <div class="row">
-            <form class='col-3 p-3 m-2' id="inputTheCity">
-                <div class='formButton'>
-                    <label for="cityName" class="form-label">Search for a City:</label>
-                    <input name='city' type="text" placeholder='enter city name' class="form-control border border-dark"
-                        id="cityInput">
-                    <button type="submit" class="btn btn-primary w-100 my-3">Search</button>
-                    <hr class="hr">
+            <div class='col-3 p-3 m-2' id="inputTheCity">
+                <form>
+                    <div>
+                        <label for="cityName" class="form-label">Search for a City:</label>
+                        <input name='city' type="text" placeholder='enter city name'
+                            class="form-control border border-dark" id="cityInput">
+                        <button type="submit" class="btn btn-primary w-100 my-3">Search</button>
+                        <hr class="hr">
+                    </div>
+                    <!---->
+                </form>
+
+                <div id="formButton">
                 </div>
-            </form>
+            </div>
 
             <div class="col">
                 <div class="card m-3" id="header-results">
