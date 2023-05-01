@@ -1,6 +1,7 @@
 
 console.log("hello")
 
+
 function getWeather(city) {
 
     var API_WEATHER_URL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&appid=9e7196afba18b75635e3489a9e6a6b9e&units=imperial'
@@ -14,10 +15,6 @@ function getWeather(city) {
         })
         .then(function (data) {
             console.log('data :>>', data);
-            var dump = document.createElement('pre');
-            dump.textContent = JSON.stringify(data.list, null, 2);
-            document.body.appendChild(dump);
-            console.log(data.list[0].main.temp);
 
             renderHeaderCard(data.list);
             renderWeatherCard(data.list);
@@ -29,27 +26,29 @@ function getWeather(city) {
         });
 };
 
+var cityHistory = [];
+
 document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault();
     var inputCity = document.getElementById('cityInput');
-    localStorage.setItem(inputCity.value, inputCity.value);
-    getWeather(this.city.value);
-    //pastSearchButton(this.city.value);
-    //window.location.reload();
+
+    cityHistory.unshift(inputCity.value);
+    localStorage.setItem('name', cityHistory);
+
+    console.log(this.city.value);
+    getWeather(inputCity.value);
+
+    console.log(cityHistory);
+    localStorage.getItem('name', cityHistory[0]);
+    console.log(localStorage.getItem('name', cityHistory[0]));
+
 });
-
-
-//function resetThePage() {
-//  location.reload();
-//};
-
-//setTimeout(resetThePage, 10);
-
 
 
 function createHeaderCard(firstCard) {
     var cardEl = document.createElement('article');
     cardEl.setAttribute('class', 'card m-3');
+    cardEl.setAttribute('id', 'cardOne')
 
     var bodyEl = document.createElement('div');
     bodyEl.setAttribute('class', 'card-body bg-warning text-black');
@@ -129,22 +128,12 @@ function renderWeatherCard(forecast) {
         var weatherCard = createWeatherCard(forecast[i]);
         resultsEl.append(weatherCard);
     }
-}
-
+};
 /*
-function pastSearchButton(historicSearches) {
-    var historySearchEl = document.createElement('div');
-    var oldSearchBtnEl = document.createElement('button');
-    oldSearchBtnEl.setAttribute('type', 'submit');
-    oldSearchBtnEl.setAttribute('class', 'btn btn-secondary w-100 my-3');
-    oldSearchBtnEl.setAttribute('placeholder', 'city nane');
-
-    form.append(historySearchEl);
-
-    historySearchEl.append(oldSearchBtnEl);
-
-}
+var dump = document.createElement('pre');
+dump.textContent = JSON.stringify(data.list, null, 2);
+document.body.appendChild(dump);
+console.log(data.list[0].main.temp);
 */
 
-
-
+//'name', inputCity.value
