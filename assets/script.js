@@ -31,6 +31,11 @@ document.querySelector('form').addEventListener('submit', function (event) {
 
     var inputCity = document.getElementById('cityInput');
 
+    if (inputCity.value == '') {
+        alert("Please Input City Name")
+        return;
+    }
+
     cityHistory.unshift(inputCity.value);
     localStorage.setItem('name', cityHistory);
 
