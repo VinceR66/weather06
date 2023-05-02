@@ -24,20 +24,21 @@ function getWeather(city) {
 };
 
 var cityHistory = [];
+var cName;
 
 document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault();
+
     var inputCity = document.getElementById('cityInput');
 
     cityHistory.unshift(inputCity.value);
     localStorage.setItem('name', cityHistory);
 
-
     getWeather(inputCity.value);
+    cName = inputCity.value;
 
-    localStorage.getItem('name', cityHistory[0]);
     renderSearchButton(cityHistory[0]);
-    console.log('got this far');
+
     console.log(cityHistory[0]);
 });
 
@@ -55,7 +56,7 @@ function createHeaderCard(firstCard) {
 
     var mainTitleEl = document.createElement('h2');
     mainTitleEl.setAttribute('class', 'card-title');
-    mainTitleEl.textContent = cityHistory[0];
+    mainTitleEl.textContent = cName;
 
     var titleEl = document.createElement('h3');
     titleEl.setAttribute('class', 'card-title');
@@ -157,25 +158,17 @@ function renderSearchButton(pastInput) {
     pastSearchBtn.setAttribute('class', 'btn bg-warning text-white btn-lg w-100 my-3');
     pastSearchBtn.setAttribute('style', 'height: 40px');
     pastSearchBtn.textContent = pastInput;
+
     pastSearchBtn.addEventListener('click', function (e) {
+        cName = pastInput;
         getWeather(pastInput);
     });
 
     attachBtn.append(pastSearchBtn);
 };
 
-/*
-document.getElementById('formButton').addEventListener('click', function (event) {
-    event.preventDefault();
-    var inputCity = document.getElementById('cityInput');
-
-    getWeather(inputCity.value);
-
-
-});
-*/
 
 
 
 
-//add event listener to each btn when create
+
